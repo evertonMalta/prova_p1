@@ -10,6 +10,7 @@ dependencies:
   device_preview: ^1.1.0
   flutter:
     sdk: flutter
+  flutter_social_button: ^1.1.4+1
 
 dev_dependencies:
   flutter_test:
@@ -18,5 +19,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-assets:
+  assets:
     - lib/images/
