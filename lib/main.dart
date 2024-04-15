@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:device_preview/device_preview.dart';
+
+import './view/inital.dart';
+import './view/createAccount.dart';
+import './view/login.dart';
+import './view/about.dart';
+import './view/mainList.dart';
+import './view/itenList.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +17,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => InitialScreen(),
+        '/createAccount': (context) => CreateAccountScreen(),
+        '/login': (context) => LoginScreen(),
+        '/about': (context) => AboutScreen(),
+      },
     );
   }
 }
