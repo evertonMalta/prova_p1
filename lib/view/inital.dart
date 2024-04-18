@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'login.dart';
 
 class InitialScreen extends StatelessWidget {
+  const InitialScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

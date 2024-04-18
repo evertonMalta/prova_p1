@@ -8,20 +8,20 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Meu App',
-      home: PrincipalView(),
+      title: 'Login',
+      home: LoginView(),
     );
   }
 }
 
-class PrincipalView extends StatefulWidget {
-  const PrincipalView({super.key});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
   @override
-  State<PrincipalView> createState() => _PrincipalViewState();
+  State<LoginView> createState() => _LoginViewState();
 }
 
-class _PrincipalViewState extends State<PrincipalView> {
+class _LoginViewState extends State<LoginView> {
   //
   // Atributos
   //
@@ -30,8 +30,8 @@ class _PrincipalViewState extends State<PrincipalView> {
   var formKey = GlobalKey<FormState>();
 
   //Controladores dos campos de texto
-  var txtValor1 = TextEditingController();
-  var txtValor2 = TextEditingController();
+  var txtName = TextEditingController();
+  var txtEmail = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,29 +45,24 @@ class _PrincipalViewState extends State<PrincipalView> {
             children: [
               SizedBox(height: 30),
               TextFormField(
-                controller: txtValor1,
+                controller: txtName,
                 style: TextStyle(fontSize: 32),
                 decoration: InputDecoration(
                   labelText: 'Email...',
                   border: OutlineInputBorder(),
                 ),
-                //
-                // Validação
-                //
                 validator: (value) {
                   if (value == null) {
                     return 'Informe um Email valido!';
                   } else if (value.isEmpty) {
                     return 'Informe um Email valido!';
                   }
-                  //validar email
-
                   return null;
                 },
               ),
               SizedBox(height: 30),
               TextFormField(
-                controller: txtValor2,
+                controller: txtEmail,
                 style: TextStyle(fontSize: 32),
                 decoration: InputDecoration(
                   labelText: 'Senha...',
@@ -80,8 +75,6 @@ class _PrincipalViewState extends State<PrincipalView> {
                     return 'Informe a senha!';
                   }
 
-                  //Retornar null significa que o campo
-                  //foi validado com sucesso!
                   return null;
                 },
               ),
@@ -95,8 +88,8 @@ class _PrincipalViewState extends State<PrincipalView> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     setState(() {
-                      double v1 = double.parse(txtValor1.text);
-                      double v2 = double.parse(txtValor2.text);
+                      double v1 = double.parse(txtName.text);
+                      double v2 = double.parse(txtEmail.text);
                       double resultado = v1 + v2;
 
                       ScaffoldMessenger.of(context).showSnackBar(

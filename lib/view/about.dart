@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:device_preview/device_preview.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -24,19 +24,19 @@ class AboutScreen extends StatelessWidget {
                 ),
               ),
               const Text(
-                'Nome do Desenvolvedor',
+                'Everton Malta Gouveia de Queiroz',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               const Text(
-                'Nome do Projeto',
+                'Lista de Compra',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  'Descrição do Projeto',
+                  'Projeto feito como prova p1 de programação para dispositivos moveis.',
                   style: TextStyle(fontSize: 16),
                   textAlign: TextAlign.center,
                 ),
@@ -45,21 +45,23 @@ class AboutScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.facebook),
-                    onPressed: () {
-                      // Adicione a funcionalidade do botão aqui
+                    icon: const Icon(Icons.camera),
+                    onPressed: () async {
+                      final Uri url = Uri.parse(
+                          'https://www.instagram.com/everton.malta.7/');
+                      if (!await launchUrl(url)) {
+                        throw Exception('Could not launch $url');
+                      }
                     },
                   ),
                   IconButton(
-                    icon: const Icon(Icons.access_alarm_rounded),
-                    onPressed: () {
-                      // Adicione a funcionalidade do botão aqui
-                    },
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.access_alarm_rounded),
-                    onPressed: () {
-                      // Adicione a funcionalidade do botão aqui
+                    icon: const Icon(Icons.catching_pokemon),
+                    onPressed: () async {
+                      final Uri url =
+                          Uri.parse('https://github.com/evertonMalta/prova_p1');
+                      if (!await launchUrl(url)) {
+                        throw Exception('Could not launch $url');
+                      }
                     },
                   ),
                 ],
