@@ -34,6 +34,16 @@ class InitialScreen extends StatelessWidget {
                 Navigator.pushNamed(context, '/login');
               },
             ),
+            SizedBox(height: 30),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 64, 255, 58),
+              ),
+              child: Text('Sobre'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/about');
+              },
+            ),
           ],
         ),
       ),
